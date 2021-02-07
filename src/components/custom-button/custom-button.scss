@@ -12,9 +12,9 @@
   font-family: "Open Sans Condensed";
   font-weight: bolder;
   border: none;
-  white-space: nowrap;
-  flex: 0 0 auto;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 
   &:hover {
     background-color: white;
@@ -24,11 +24,23 @@
 
   &.google-sign-in {
     background-color: #4285f4;
+    color: white;
 
     &:hover {
-      color: #fff;
-      border: none;
       background-color: #357ae8;
+      border: none;
+    }
+  }
+
+  &.inverted {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      border: none;
     }
   }
 }
