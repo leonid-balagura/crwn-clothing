@@ -1,12 +1,15 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import CollectionItem from "../collection-item/collection-item";
 
 import "./collection-preview.scss";
 
-const CollectionPreview = ({ title, items }) => {
+const CollectionPreview = ({ title, routeName, items, match }) => {
   return (
     <div className="collection-preview">
-      <div className="title">{title}</div>
+      <Link to={`${match.url}/${routeName}`} className="title">
+        {title}
+      </Link>
       <div className="preview">
         {items
           .filter((item, idx) => idx < 4)
@@ -18,4 +21,4 @@ const CollectionPreview = ({ title, items }) => {
   );
 };
 
-export default CollectionPreview;
+export default withRouter(CollectionPreview);
