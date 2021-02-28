@@ -1,23 +1,26 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+
 import CollectionItem from "../collection-item/collection-item";
 
-import "./collection-preview.scss";
+import {
+  CollectionPreviewContainer,
+  TitleContainer,
+  PreviewContainer,
+} from "./collection-preview-styles";
 
 const CollectionPreview = ({ title, routeName, items, match }) => {
   return (
-    <div className="collection-preview">
-      <Link to={`${match.url}/${routeName}`} className="title">
-        {title}
-      </Link>
-      <div className="preview">
+    <CollectionPreviewContainer>
+      <TitleContainer to={`${match.url}/${routeName}`}>{title}</TitleContainer>
+      <PreviewContainer>
         {items
           .filter((item, idx) => idx < 4)
           .map((item) => (
             <CollectionItem key={item.id} item={item} />
           ))}
-      </div>
-    </div>
+      </PreviewContainer>
+    </CollectionPreviewContainer>
   );
 };
 

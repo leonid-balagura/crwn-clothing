@@ -1,9 +1,10 @@
 import React from "react";
-import FormInput from "../form-input/form-input";
-import CustomButton from "../custom-button/custom-button";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
-import "./sign-up.scss";
+import FormInput from "../form-input/form-input";
+import CustomButton from "../custom-button/custom-button";
+
+import { SignUpContainer, SignUpTitle } from "./sign-up-styles";
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -55,12 +56,11 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div className="sign-up">
-        <h2>I do not have a account</h2>
+      <SignUpContainer>
+        <SignUpTitle>I do not have a account</SignUpTitle>
         <span>Sign up with your email and password</span>
         <form onSubmit={this.handleSubmit}>
           <FormInput
-            className="form-input"
             value={this.state.displayName}
             handleChange={this.handleChange}
             label="Display Name"
@@ -69,7 +69,6 @@ class SignUp extends React.Component {
             required
           />
           <FormInput
-            className="form-input"
             value={this.state.email}
             handleChange={this.handleChange}
             label="Email"
@@ -78,7 +77,6 @@ class SignUp extends React.Component {
             required
           />
           <FormInput
-            className="form-input"
             value={this.state.password}
             handleChange={this.handleChange}
             label="Password"
@@ -87,7 +85,6 @@ class SignUp extends React.Component {
             required
           />
           <FormInput
-            className="form-input"
             value={this.state.confirmPassword}
             handleChange={this.handleChange}
             label="Confirm Password"
@@ -97,7 +94,7 @@ class SignUp extends React.Component {
           />
           <CustomButton type="submit">sign up</CustomButton>
         </form>
-      </div>
+      </SignUpContainer>
     );
   }
 }
